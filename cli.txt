@@ -1,0 +1,5 @@
+v4l2-ctl --set-ctrl bypass_mode=0 --stream-mmap --stream-count=1 --stream-to=image2.raw -d /dev/video0
+
+v4l2-ctl --stream-mmap -d /dev/video0 --set-fmt-video=width=3840,height=2160,pixelformat=BA12
+
+gst-launch-1.0 nvarguscamerasrc ! 'video/x-raw(memory:NVMM), width=(int)3840, height=(int)2160, format=(string)NV12, framerate=(fraction)30/1' ! nvvidconv ! queue ! xvimagesink
