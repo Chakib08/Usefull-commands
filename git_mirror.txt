@@ -1,0 +1,7 @@
+git clone --mirror <URL to Bitbucket repo location>
+
+cd <New directory where your repo was cloned>
+
+git remote set-url origin <URL to the GitHub repo location>
+
+git push -f origin
